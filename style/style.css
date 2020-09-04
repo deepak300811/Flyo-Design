@@ -141,7 +141,7 @@ body {
   background: #fff;
   justify-content: flex-end;
   align-items: center;
-  animation: animate1 2s forwards ease-out;
+  animation: animate1 4s forwards ease-out;
 }
 #usage-box .progress-bar > div > span {
   width: 9px;

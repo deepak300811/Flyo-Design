@@ -1,0 +1,216 @@
+:root {
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+  --from-color: hsl(6, 100%, 80%);
+  --to-color: hsl(335, 100%, 65%);
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  background: var(--very-dark-blue);
+  /* background: url("../images/bg-desktop.png") no-repeat center center/cover; */
+}
+
+/* Ultility */
+.color-light {
+  color: #fff;
+}
+.font-light {
+  font-weight: 100;
+}
+.font-bolder {
+  font-weight: 700;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--very-dark-blue);
+  margin: 5px;
+  border-radius: 10px;
+  height: 45px;
+  width: 45px;
+}
+.font-big {
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+#main-box {
+  margin: auto;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.design {
+  background: url("../images/bg-desktop.png") no-repeat center center;
+  position: fixed;
+  top: 50vh;
+  width: 100vw;
+  height: 50vh;
+  z-index: -1;
+  /* border-radius: 40% 0 0 0; */
+}
+
+#main-box .container-outer {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: 1fr 2fr;
+  width: 80%;
+}
+
+#fylo-box {
+  /* width: 30%; */
+  height: 210px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0rem 3rem;
+  background: var(--dark-blue);
+  border-radius: 5% 50% 5% 5%;
+}
+
+#fylo-box .container {
+  width: 50%;
+  display: grid;
+  grid-gap: 0.3rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#fylo-box .container .flyo-logo {
+  padding: 10px 0px;
+  grid-column: 1 / span 3;
+}
+
+#usage-box {
+  position: relative;
+  align-self: flex-end;
+  background: var(--dark-blue);
+  /* width: 70%; */
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+#usage-box .container {
+  width: 70%;
+  height: 60%;
+  display: grid;
+  grid-template-areas:
+    "progressHeading progressHeading"
+    "progressBar progressBar"
+    "start end";
+}
+.progress-bar {
+  grid-area: progressBar;
+}
+.progress-heading {
+  grid-area: progressHeading;
+}
+.start {
+  grid-area: start;
+}
+.end {
+  grid-area: end;
+}
+
+#usage-box .container .end {
+  justify-self: flex-end;
+}
+
+#usage-box .progress-bar {
+  background: var(--very-dark-blue);
+  width: 100%;
+  border: 2px solid var(--very-dark-blue);
+  display: flex;
+  align-items: center;
+  height: 60%;
+  border-radius: 10px;
+}
+#usage-box .progress-bar > div {
+  border-radius: 10px;
+  display: flex;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+  justify-content: flex-end;
+  align-items: center;
+  animation: animate1 2s forwards ease-out;
+}
+#usage-box .progress-bar > div > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+}
+@keyframes animate1 {
+  to {
+    width: 75%;
+    background: linear-gradient(to right, var(--from-color), var(--to-color));
+  }
+}
+
+#usage-box .indicator {
+  position: absolute;
+  background: #fff;
+  height: 75px;
+  width: 182px;
+
+  /* transform: translate(115%, -115%); */
+  border-radius: 15px;
+  display: flex;
+  top: -50px;
+  right: 30px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  /* transition: all 0.2s ease-in 2s; */
+  /* transition: all 0.2s ease-out 2s; */
+}
+
+#usage-box .indicator .indicator-text {
+  color: var(--grayish-blue);
+  padding: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  #main-box .container-outer {
+    display: grid;
+    grid-gap: 1.2rem;
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+  #usage-box {
+    height: 190px;
+  }
+
+  #usage-box .indicator {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform: translate(0, 120%);
+  }
+
+  body {
+    background: url("../images/bg-mobile.png") center center / cover;
+  }
+  .design {
+    display: none;
+  }
+}
